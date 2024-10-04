@@ -1,0 +1,157 @@
+.header-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+.header-container {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 3em;
+    color: rgb(107, 13, 13);
+    z-index: 1;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #fcf0cc;
+    color: rgb(255, 211, 180);
+    padding: 20px 0;
+    text-align: center;
+}
+.nav-link.active {
+    font-weight: bold;
+    background-color: #ffaca7;
+    color: white;
+nav {
+    display: flex;
+    justify-content: center;
+}
+@keyframes moveRight {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px); /* Move right by 10px */
+    }
+    100% {
+        transform: translateX(0); /* Return to original position */
+    }
+}
+@keyframes popUp {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+section {
+    display: none; /* Hide all sections initially */
+    opacity: 0; /* Start with hidden opacity */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+section.active {
+    display: block; /* Show the active section */
+    animation: popUp 0.5s ease; /* Apply pop-up animation */
+    opacity: 1; /* Ensure it's fully visible */
+}
+
+
+section {
+    display: none; /* Hide all sections initially */
+    opacity: 0; /* Start with hidden opacity */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+section.active {
+    display: block; /* Show the active section */
+    animation: popUp 0.5s ease; /* Apply pop-up animation */
+}
+
+.title {
+    display: inline-block; /* Make the title an inline block to allow transform */
+    animation: moveRight 0.5s ease-in-out infinite; /* Apply animation */
+    font-size: 2.5em; /* Font size */
+    color: #ffa5a5; /* Text color */
+    background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3); /* Rainbow gradient */
+    background-size: 400%; /* Size of the gradient background for animation */
+    animation: moveRight 0.5s ease-in-out infinite, rainbow 5s linear infinite; /* Apply both animations */
+    border: 2px solid #ff9e6d; /* Border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 20px; /* Inner spacing */
+    margin: 20px; /* Outer spacing */
+    width: fit-content; /* Width that fits the content */
+    height: auto; /* Automatic height */
+}
+
+/* Animation for the rainbow effect */
+@keyframes rainbow {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background: #333;
+    color: white;
+}
+}

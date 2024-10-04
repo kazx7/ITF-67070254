@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About China</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        section {
+            display: none; /* Hide all sections initially */
+            opacity: 0; /* Start with hidden opacity */
+            transition: opacity 0.3s ease; /* Smooth transition for opacity */
+        }
+        section.active {
+            display: block; /* Show the active section */
+            animation: popUp 0.5s ease; /* Apply pop-up animation */
+            opacity: 1; /* Ensure it's fully visible */
+        }
+        .nav-link.active {
+            font-weight: bold;
+            background-color: #007BFF; /* Example active color */
+            color: white; /* Text color for active state */
+        }
+
+        @keyframes moveRight {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10px); /* Move right by 10px */
+            }
+            100% {
+                transform: translateX(0); /* Return to original position */
+            }
+        }
+
+        .title {
+            display: inline-block; /* Make the title an inline block to allow transform */
+            animation: moveRight 0.5s ease-in-out infinite; /* Apply animation */
+            font-size: 2.5em; /* Font size */
+            color: #ffa5a5; /* Text color */
+            background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3); /* Rainbow gradient */
+            background-size: 400%; /* Size of the gradient background for animation */
+            animation: moveRight 0.5s ease-in-out infinite, rainbow 5s linear infinite; /* Apply both animations */
+            border: 2px solid #ff9e6d; /* Border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 10px 20px; /* Inner spacing */
+            margin: 20px; /* Outer spacing */
+            width: fit-content; /* Width that fits the content */
+            height: auto; /* Automatic height */
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0%;
+            }
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        @keyframes popUp {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="china-country-flag.png" alt="Flag of China" class="header-img">
+            <div class="overlay">
+                <h1 class="title">Discover China</h1>
+            </div>
+        </div>
+        <nav role="navigation">
+            <ul>
+                <li><button class="nav-link" data-target="geography" aria-controls="geography">Geography</button></li>
+                <li><button class="nav-link" data-target="culture" aria-controls="culture">Culture</button></li>
+                <li><button class="nav-link" data-target="history" aria-controls="history">History</button></li>
+                <li><button class="nav-link" data-target="cuisine" aria-controls="cuisine">Cuisine</button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="geography">
+            <h2>Geography</h2>
+            <div>
+                <p>China is the fourth largest country in the world, featuring diverse landscapes including mountains, deserts, and rivers. The country is bordered by 14 nations and has a vast coastline along the East China Sea.</p>
+            </div>
+        </section>
+
+        <section id="culture">
+            <h2>Culture</h2>
+            <div>
+                <p>China has a rich cultural heritage that dates back thousands of years. It is known for its traditional arts, music, dance, and festivals. The Chinese New Year, Mid-Autumn Festival, and Dragon Boat Festival are among the most celebrated events.</p>
+            </div>
+        </section>
+
+        <section id="history">
+            <h2>History</h2>
+            <div>
+                <p>China's history spans over 5,000 years, marked by the rise and fall of dynasties, the development of philosophies like Confucianism and Taoism, and significant inventions such as paper and gunpowder.</p>
+            </div>
+        </section>
+
+        <section id="cuisine">
+            <h2>Cuisine</h2>
+            <div>
+                <p>Chinese cuisine is famous worldwide for its variety and flavor. Key dishes include Peking duck, dim sum, and hot pot. Each region has its own unique styles, such as Sichuan's spicy dishes and Cantonese's emphasis on fresh ingredients.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Discover China. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const buttons = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the target section
+                const targetSection = document.getElementById(targetId);
+                targetSection.classList.add('active');
+
+                // Remove active class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to the clicked button
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
