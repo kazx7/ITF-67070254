@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Username</h1>
+    </div>
+    <div class="profile">
+        <img src="https://www.marthastewart.com/thmb/IIv7TLn68Vwsri-lK3Du-H0mqIQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cat-kitten-138468381-4cd82b91d7be45cb9f9aa8366e10bce4.jpg" alt="Profile Image" id="profile-img">
+        <input type="text" placeholder="Enter Username" id="username-input">
+        <button onclick="setUsername()">SET</button>
+        <input type="text" placeholder="Enter Image URL" id="image-url-input">
+        <button onclick="setImageUrl()">SET</button>
+    </div>
+
+    <h2>Phone Number List</h2>
+    <table id="phone-list">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added here dynamically -->
+        </tbody>
+    </table>
+    <input type="text" id="name-input" placeholder="Enter Name">
+    <input type="text" id="tel-input" placeholder="Enter Phone">
+    <button onclick="addContact()">ADD</button>
+    <button onclick="exportContacts()">EXPORT</button>
+
+    <script>
+        function setUsername() {
+            const usernameInput = document.getElementById('username-input');
+            const heading = document.querySelector('.container h1');
+            heading.textContent = usernameInput.value || 'Username';
+            usernameInput.value = ''; // Clear input after setting
+        }
+
+        function setImageUrl() {
+            const imageUrlInput = document.getElementById('image-url-input');
+            const profileImg = document.getElementById('profile-img');
+            profileImg.src = imageUrlInput.value || ''; // Set the new image URL
+            imageUrlInput.value = ''; // Clear input after setting
+        }
+
+        function addContact() {
+            const nameInput = document.getElementById('name-input');
+            const telInput = document.getElementById('tel-input');
+            
+            const table = document.getElementById('phone-list').getElementsByTagName('tbody')[0];
+            const rowCount = table.rows.length; // Get current row count for numbering
+
+            // Create a new row
+            const newRow = table.insertRow(rowCount);
+            newRow.insertCell(0).textContent = rowCount + 1; // Numbering
+            newRow.insertCell(1).textContent = nameInput.value || 'No Name'; // Name
+            newRow.insertCell(2).textContent = telInput.value || 'No Phone'; // Phone Number
+            
+            // Clear inputs after adding
+            nameInput.value = '';
+            telInput.value = '';
+        }
+
+        function exportContacts() {
+            alert('Export functionality not implemented yet.');
+        }
+    </script>
+</body>
+</html>

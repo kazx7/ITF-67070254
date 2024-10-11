@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+    margin: 20px 0;
+}
+
+#profile-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+}
+
+button {
+    background-color: pink; /* Set background color to pink */
+    color: white;           /* Set text color to white for better contrast */
+    border: none;          /* Remove border */
+    padding: 10px 20px;    /* Add some padding */
+    border-radius: 5px;    /* Optional: Add rounded corners */
+    cursor: pointer;        /* Change cursor on hover */
+    font-size: 16px;        /* Adjust font size */
+}
+
+button:hover {
+    background-color: #d5006d; /* Use a hex code for hover effect */
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
